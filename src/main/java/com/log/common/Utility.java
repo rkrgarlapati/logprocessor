@@ -3,6 +3,7 @@ package com.log.common;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Utility {
 
@@ -11,11 +12,13 @@ public class Utility {
         List<String> list = new ArrayList<>();
         list.addAll(Arrays.asList(sev));
 
-        for (int i = 0; i < sev.length; ) {
-            if (!list.get(i).equals(param)) {
-                list.remove(i);
-            } else {
-                break;
+        if(param != null) {
+            for (int i = 0; i < sev.length; ) {
+                if (!list.get(i).equals(param)) {
+                    list.remove(i);
+                } else {
+                    break;
+                }
             }
         }
 

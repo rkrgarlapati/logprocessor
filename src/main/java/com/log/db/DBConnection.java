@@ -13,6 +13,8 @@ public class DBConnection {
     static String sql = "INSERT INTO DATA (TIMESTAMP, sev, tag, message)" +
             " VALUES (?,?,?,?)";
 
+    private String qry = "SELECT * FROM DATA WHERE ";
+
     private DBConnection() {
         try {
             Class.forName("org.h2.Driver");
@@ -48,6 +50,8 @@ public class DBConnection {
                     "sev VARCHAR NOT NULL, " +
                     "tag VARCHAR(100) NOT NULL, " +
                     "message VARCHAR(5000) NOT NULL)");
+
+            //stmt.executeUpdate("CREATE INDEX sev_indx ON DATA(sev)");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -162,20 +166,20 @@ public class DBConnection {
         java.util.List<String[]> allLines = new ArrayList<>();
 
         try {
-            String qry = "SELECT * FROM DATA ";
+
 
             if(tag != null && sev != null) {
-                qry = "SELECT * FROM DATA WHERE tag LIKE '%" + tag + "%' AND array_contains(?, sev)";
+                qry = qry+" tag LIKE '%" + tag + "%' AND array_contains(?, sev)";
             } else {
                 if(tag != null){
-                    qry = qry + " WHERE tag LIKE '%" + tag + "%'";
+                    qry = qry + " tag LIKE '%" + tag + "%'";
                 }
                 if(sev != null){
-                    qry = qry + " WHERE array_contains(?, sev)";
+                    qry = qry + " array_contains(?, sev)";
                 }
             }
 
-            System.out.println("Query :"+qry);
+            System.out.println("Selected Parameters :"+qry);
 
             PreparedStatement prep = conn.prepareStatement(qry);
             if(sev != null) {
@@ -208,7 +212,7 @@ public class DBConnection {
         return allLines;
     }
 
-    public void setPreparedStmt(PreparedStatement preparedStmt) {
-        this.preparedStmt = preparedStmt;
+    public void deleteAllRecords(){
+        createTable();
     }
 }

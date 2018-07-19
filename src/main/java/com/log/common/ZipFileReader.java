@@ -22,6 +22,7 @@ import java.util.List;
 public class ZipFileReader {
 
     private static ZipFileReader instance;
+    private File unzippedfolder;
 
     private ZipFileReader() {
     }
@@ -71,6 +72,8 @@ public class ZipFileReader {
             File input = new File(outZip);
             File output = new File(folderN);
 
+            setUnzippedfolder(output);
+
             files = unTar(input, output);
 
             System.out.println("Zip decompressing completed...."+new Date());
@@ -115,5 +118,13 @@ public class ZipFileReader {
         //System.out.println("Size ::" + untaredFiles.size());
 
         return untaredFiles;
+    }
+
+    public File getUnzippedfolder() {
+        return unzippedfolder;
+    }
+
+    public void setUnzippedfolder(File unzippedfolder) {
+        this.unzippedfolder = unzippedfolder;
     }
 }

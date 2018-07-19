@@ -16,6 +16,11 @@ dependencies {
 
     runtime 'com.h2database:h2:1.4.197'
     compile 'org.apache.commons:commons-compress:1.16.1'
+    compile 'pl.allegro.tech:embedded-elasticsearch:2.5.0'
+    compile 'org.apache.httpcomponents:httpcore-nio:4.4.9'
+    compile 'org.elasticsearch.client:elasticsearch-rest-client-sniffer:6.2.4'
     compile 'org.apache.tika:tika-core:1.17'
     compile 'commons-io:commons-io:2.6'
+    compile 'org.apache.spark:spark-sql_2.11:2.3.0'
+    compile 'org.swinglabs:swingx:1.6.1'
 }

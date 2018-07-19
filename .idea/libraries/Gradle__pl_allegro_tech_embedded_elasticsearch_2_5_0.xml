@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: pl.allegro.tech:embedded-elasticsearch:2.5.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/pl.allegro.tech/embedded-elasticsearch/2.5.0/8c100d2a32e2de6763187e66149320c31736e438/embedded-elasticsearch-2.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/pl.allegro.tech/embedded-elasticsearch/2.5.0/5a8dede404370c2d7d9918add7f1b9f85dda2d0/embedded-elasticsearch-2.5.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
